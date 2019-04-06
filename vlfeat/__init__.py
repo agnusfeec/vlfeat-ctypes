@@ -31,3 +31,8 @@ def vl_kmeans(*args, **kwargs):
 def vl_gmm(*args, **kwargs):
     from .gmm import vl_gmm as f
     return f(*args, **kwargs)
+
+def vl_fisher(*args, **kwargs):
+    from .fisher import vl_fisher as f
+    return f(*args, **kwargs)
+    
