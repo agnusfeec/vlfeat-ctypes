@@ -38,9 +38,4 @@ Examples
 
 Some examples are provide in examples folder.
 
-* GMM (vlfeat_gmm) : This example shows the use of ``GMM`` object, it was based in
-the "Getting Starting" example of `the vlfeat library <http://www.vlfeat.org>`_
-. In order to use gmm.h to learn a GMM from training data, create a new VlGMM
-object instance, set the parameters as desired, and run the training code.
-The example learns numClusters Gaussian components from numData vectors of
-dimension dimension and storage class float using at most 100 EM iterations.
+* GMM (vlfeat_gmm) : This example shows the use of ``GMM`` object, it was based in the "Getting Starting" example of `the vlfeat library <http://www.vlfeat.org>`_. In order to use gmm.h to learn a GMM from training data, create a new VlGMM object instance, set the parameters as desired, and run the training code. The example learns numClusters Gaussian components from numData vectors of dimension dimension and storage class float using at most 100 EM iterations.
