@@ -28,3 +28,6 @@ def vl_kmeans(*args, **kwargs):
     from .kmeans import vl_kmeans as f
     return f(*args, **kwargs)
 
+def vl_gmm(*args, **kwargs):
+    from .gmm import vl_gmm as f
+    return f(*args, **kwargs)

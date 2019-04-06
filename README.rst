@@ -32,3 +32,15 @@ doing so; run it with ``python -m vlfeat.download``. If you add a ``-h``
 argument, it'll show you how to do it with a pre-downloaded binary distribution.
 If you install Python packages with ``sudo``, you may need to do the same for
 the download script.
+
+Examples
+--------
+
+Some examples are provide in examples folder.
+
+* GMM (vlfeat_gmm) : This example shows the use of ``GMM`` object, it was based in
+the "Getting Starting" example of `the vlfeat library <http://www.vlfeat.org>`_
+. In order to use gmm.h to learn a GMM from training data, create a new VlGMM
+object instance, set the parameters as desired, and run the training code.
+The example learns numClusters Gaussian components from numData vectors of
+dimension dimension and storage class float using at most 100 EM iterations.
