@@ -119,9 +119,9 @@ vl_gmm_init_with_kmeans.restype = None
 def vl_gmm_em(gmm, data, numData):
     """
     	Args:
-        	self	GMM object instance. (VlGMM *)
-          	data	data points which should be clustered. (void const *)
-          	numData	number of data points.(vl_size)
+        	gmm	     GMM object instance. (VlGMM *)
+          	data	 data points which should be clustered. (void const *)
+          	numData	 number of data points.(vl_size)
 		Return:
 			(double)
     """
@@ -314,6 +314,22 @@ vl_gmm_get_kmeans_init_object = LIB['vl_gmm_get_kmeans_init_object']
 vl_gmm_get_kmeans_init_object.argtypes = [ VlGMM_p ]
 vl_gmm_get_kmeans_init_object.restype = VlKMeans_p
 
-vl_gmm_get_covariance_lower_bounds = LIB['vl_gmm_get_covariance_lower_bounds']
-vl_gmm_get_covariance_lower_bounds.argtypes = [ VlGMM_p ]
-vl_gmm_get_covariance_lower_bounds.restype = c_double_p
+def vl_gmm_get_covariance_lower_bounds(gmm):
+    """
+        Args:
+            gmm	object
+        Returns:
+            lower bound on covariances. (numpy array of doubles)
+
+    """
+    Py_vl_gmm_get_covariance_lower_bounds = LIB['vl_gmm_get_covariance_lower_bounds']
+    Py_vl_gmm_get_covariance_lower_bounds.argtypes = [ VlGMM_p ]
+
+    size = gmm.contents.dimension
+    restype =  c_double_p
+    np_type = np.float64
+
+    Py_vl_gmm_get_covariance_lower_bounds.restype = restype
+    covs_lb = Py_vl_gmm_get_covariance_lower_bounds(gmm)
+
+    return np.array(np.fromiter(covs_lb, dtype=np_type, count=size))
